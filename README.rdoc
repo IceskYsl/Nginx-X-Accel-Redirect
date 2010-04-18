@@ -1,6 +1,6 @@
 = Nginx-X-Accel-Redirect
 
-This Rails plugin allows users to take advantage of nginx's X-Accel-Redirect header, similar to X-Send-File.
+This Rails plugin allows users to take advantage of nginx's X-Accel-Redirect header, similar to X-Send-File and Content-Range.
 
 ==== Credits
 This plugin was inspired in the x_send_file plugin, which was created before the option :x_sendfile dropped in Rails <i>send_file</i> method (supported since version 2.1).
