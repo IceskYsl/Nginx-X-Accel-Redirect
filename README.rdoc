@@ -19,7 +19,7 @@ If everything goes correctly, your application is now ready to use the nginx's X
 
 X-Accel-Redirect has an equivalent method to Rails <i>send_file</i>, called <b>x_accel_redirect</b>. Using is as easy as:
 
-     x_accel_redirect "/path/to/file", :filename => "filename"
+     x_accel_redirect "/path/to/file", :filename => "filename",:root=>"/path/to/root"
 
 All <i>send_file</i> options are available using this method. Now you can even let your old <b>:x_sendfile</b> option since the plugin will discard it.
 
