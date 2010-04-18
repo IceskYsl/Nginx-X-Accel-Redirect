@@ -21,6 +21,31 @@ X-Accel-Redirect has an equivalent method to Rails <i>send_file</i>, called <b>x
 
      x_accel_redirect "/path/to/file", :filename => "filename",:root=>"/path/to/root"
 
+     # Options:
+     # * <tt>:filename</tt> - suggests a filename for the browser to use.
+     #   Defaults to File.basename(path).
+     # * <tt>:type</tt> - specifies an HTTP content type.
+     #   Defaults to 'application/octet-stream'.
+     # * <tt>:disposition</tt> - specifies whether the file will be shown inline or downloaded.
+     #   Valid values are 'inline' and 'attachment' (default).
+     # * <tt>:status</tt> - specifies the status code to send with the response. Defaults to '200 OK'.
+     # * <tt>:url_based_filename</tt> - set to true if you want the browser guess the filename from
+     #   the URL, which is necessary for i18n filenames on certain browsers
+     #   (setting :filename overrides this option).
+     # * <tt>:header</tt> - specifies the name to use for the X-Sendfile HTTP header
+     #   Defaults to 'X-Sendfile'.
+     # * <tt>:file_paths</tt> - list of acceptible file paths
+     # * <tt>:root</tt> - the root directory is removed when file path specified in header
+     #
+     # Simple download:
+     #   x_accel_redirect '/path/to/file'
+     #
+     # Show a JPEG in the browser:
+     #   x_accel_redirect('/path/to/image.jpg', :type => 'image/jpeg', :disposition => 'inline')
+     #
+     # x_accel_redirect's options and defaults mirror those of send_file.  Please see
+     # ActionController::Streaming#send_file for more detailed information about
+     # the options, HTTP specs, and possible security issues.
 All <i>send_file</i> options are available using this method. Now you can even let your old <b>:x_sendfile</b> option since the plugin will discard it.
 
 
